@@ -50,7 +50,7 @@ jobs:
       - run: flutter build apk --release
 
       - uses: actions/upload-artifact@v3 # upload the app
-        if: [[ ${{ github.event_name }} == 'push' && github.ref == 'refs/heads/stable' ]]
+        if: [[ github.event_name == 'push' && github.ref == 'refs/heads/stable' ]]
         with:
           name: bartalap-android
           path: build/app/outputs/apk/release/app-release.apk
